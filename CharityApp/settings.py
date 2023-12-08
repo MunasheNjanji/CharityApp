@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+SITE_ID = 1
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,22 +40,33 @@ INSTALLED_APPS = [
 
     # Third-Party Apps
     "rest_framework",
-    # "allauth.socialaccount",
-    # "allauth.socialaccount.providers.google",
+    "rest_framework.authtoken",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "dj_rest_auth",
+    "dj_rest_auth.registration",
+
 
     # Local Apps
-    # 'authentication',
+    'authentication.apps.AuthenticationConfig',
 ]
 
 MIDDLEWARE = [
     # 'cors.middleware.CorsMiddleware', # CORS Middleware used for Cross Origin Resource Sharing
-    'django.middleware.security.SecurityMiddleware', # Security Middleware used for security purposes
-    'django.contrib.sessions.middleware.SessionMiddleware', # Session Middleware used for session management
-    'django.middleware.common.CommonMiddleware', # Common Middleware 
-    'django.middleware.csrf.CsrfViewMiddleware', # CSRF Middleware used for Cross Site Request Forgery to prevent malicious attacks
-    'django.contrib.auth.middleware.AuthenticationMiddleware', # Authentication Middleware used for authentication purposes
-    'django.contrib.messages.middleware.MessageMiddleware', # Message Middleware used for displaying messages
-    'django.middleware.clickjacking.XFrameOptionsMiddleware', # XFrameOptions Middleware used for security purposes
+    # Security Middleware used for security purposes
+    'django.middleware.security.SecurityMiddleware',
+    # Session Middleware used for session management
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',  # Common Middleware
+    # CSRF Middleware used for Cross Site Request Forgery to prevent malicious attacks
+    'django.middleware.csrf.CsrfViewMiddleware',
+    # Authentication Middleware used for authentication purposes
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    # Message Middleware used for displaying messages
+    'django.contrib.messages.middleware.MessageMiddleware',
+    # XFrameOptions Middleware used for security purposes
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'CharityApp.urls'
@@ -67,10 +78,14 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'django.template.context_processors.debug', # Debug Template Context Processor used for debugging purposes
-                'django.template.context_processors.request', # Request Template Context Processor used for request purposes
-                'django.contrib.auth.context_processors.auth', # Authentication Template Context Processor used for authentication purposes
-                'django.contrib.messages.context_processors.messages', # Messages Template Context Processor used for displaying messages
+                # Debug Template Context Processor used for debugging purposes
+                'django.template.context_processors.debug',
+                # Request Template Context Processor used for request purposes
+                'django.template.context_processors.request',
+                # Authentication Template Context Processor used for authentication purposes
+                'django.contrib.auth.context_processors.auth',
+                # Messages Template Context Processor used for displaying messages
+                'django.contrib.messages.context_processors.messages',
             ],
         },
     },
@@ -108,6 +123,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.TokenAuthentication",
+    ]
+}
+
 # ACCOUNT_EMAIL_VERIFICATION = None
 
 
@@ -136,5 +157,4 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# AUTH_USER_MODEL = 'authentication.CustomUser' # Custom User Model
 AUTH_USER_MODEL = 'auth.User'
