@@ -2,5 +2,7 @@ django # for the backend
 djangorestframework # for the api
 markdown      # for the browsable api
 django-filter    # for filtering the api
-django-allauth==0.52.0 # 
-dj-rest-auth[with_social]==4.0.0
+django-allauth==0.52.0 # for the social authentication
+dj-rest-auth[with_social]==4.0.0 # for the social authentication
+django-rest-swagger # for the api documentation
+drf-yasg # for the api documentation

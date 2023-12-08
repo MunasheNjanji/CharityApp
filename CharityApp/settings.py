@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "dj_rest_auth",
     "dj_rest_auth.registration",
+    # 'django.contrib.staticfiles',  # required for serving swagger ui's css/js files
+    # 'drf_yasg',
 
 
     # Local Apps

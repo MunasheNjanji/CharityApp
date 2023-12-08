@@ -1,3 +1,9 @@
-from django.shortcuts import render
+# views.py in charity_management app
 
-# Create your views here.
+from rest_framework import generics
+from .models import Charity
+from .serializers import CharitySerializer
+
+class CharityListView(generics.ListAPIView):
+    queryset = Charity.objects.all()
+    serializer_class = CharitySerializer
