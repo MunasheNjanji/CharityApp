@@ -13,4 +13,5 @@ class UserProfileView(generics.RetrieveAPIView):
         user = self.get_object()
         # Perform any additional operations with the user object
         # ...
+        
         return self.retrieve(request, *args, **kwargs)

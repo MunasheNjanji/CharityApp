@@ -52,6 +52,12 @@ INSTALLED_APPS = [
 
     # Local Apps
     'authentication.apps.AuthenticationConfig',
+    'user_engagement.apps.UserEngagementConfig',
+    'donation_handling.apps.DonationHandlingConfig',
+    'analytics_reporting.apps.AnalyticsReportingConfig',
+    'charity_management.apps.CharityManagementConfig',
+    'read_only_views.apps.ReadOnlyViewsConfig',
+    'campaign_management.apps.CampaignManagementConfig',
 ]
 
 MIDDLEWARE = [
