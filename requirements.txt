@@ -1,0 +1,4 @@
+django # for the backend
+djangorestframework # for the api
+markdown      # for the browsable api
+django-filter    # for filtering the api
